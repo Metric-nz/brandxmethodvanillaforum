@@ -6,7 +6,8 @@ sudo debconf-set-selections <<< 'mysql-server \
  mysql-server/root_password password root'
 sudo debconf-set-selections <<< 'mysql-server \
  mysql-server/root_password_again password root'
-sudo apt-get install -y php5-mysql mysql-server
+sudo apt-get install -y lamp-server^
+# sudo apt-get install -y php5-mysql mysql-server
 
 cat << EOF | sudo tee -a /etc/mysql/conf.d/default_engine.cnf
 [mysqld]
@@ -23,10 +24,12 @@ sudo rm -rf /var/www/html
 sudo mkdir -p /vagrant/files/www/html
 sudo ln -fs /vagrant/files/www/html /var/www/html
 
-apt-get install -y git
+sudo apt-get install -y git unzip
 
 # pull down Vanilla 2.1
-git clone https://github.com/vanilla/vanilla.git -b 2.1 /vagrant/files/www/html
+wget -N http://vanillaforums.org/get/vanilla-core-2.1.7.zip -P /vagrant/files/www/html/source/
+unzip -o /vagrant/files/www/html/source/vanilla-core-2.1.7.zip -d /vagrant/files/www/html/
+# git clone https://github.com/vanilla/vanilla.git -b 2.1 /vagrant/files/www/html
 
 #create the database
 /vagrant/files/createdb.sh vanillaforum brandx password root
@@ -34,5 +37,5 @@ git clone https://github.com/vanilla/vanilla.git -b 2.1 /vagrant/files/www/html
 # Install extras
 # Add-ons
 # YAGA
-wget http://vanillaforums.org/get/yaga-application-1.0.3.zip -P /vagrant/files/www/html/source/
-unzip /vagrant/files/www/html/source/yaga-application-1.0.3.zip -d /vagrant/files/www/html/applications
+wget -N http://vanillaforums.org/get/yaga-application-1.0.3.zip -P /vagrant/files/www/html/source/
+unzip -o /vagrant/files/www/html/source/yaga-application-1.0.3.zip -d /vagrant/files/www/html/applications/

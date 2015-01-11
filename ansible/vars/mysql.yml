@@ -1,0 +1,5 @@
+mysql:
+    root_password: root
+    user: brandx
+    password: password
+    database: vanillaforum
