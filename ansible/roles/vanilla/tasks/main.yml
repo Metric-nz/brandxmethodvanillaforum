@@ -1,7 +1,7 @@
 ---
 
 - name: mysql | Create databases
-  mysql_db: name={{ vanillasql.database }} state=present login_user=root login_password={{ vanillasql.root_password }}
+  mysql_db: name={{ vanillasql.database }} state=present login_user=root login_password={{ mysql.root_password }}
 
 - name: mysql | Create users
   mysql_user: name={{ vanillasql.user }} password={{ vanillasql.password }} priv={{ vanillasql.database }}.*:vanillasql.database state=present login_user=root login_password={{ vanillasql.root_password }}
