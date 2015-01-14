@@ -37,7 +37,6 @@ Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/trusty64"
     
     config.vm.network :private_network, ip: "192.168.33.99"
-    # config.vm.network :private_network, type: "dhcp"
     config.ssh.forward_agent = true
 
     #############################################################
@@ -49,7 +48,6 @@ Vagrant.configure("2") do |config|
         config.vm.provision "ansible" do |ansible|
             ansible.playbook = "ansible/playbook.yml"
             ansible.inventory_path = "ansible/inventories/dev"
-            # ansible.inventory_path = ".vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory"
             ansible.limit = 'all'
             ansible.extra_vars = {
                 private_interface: "192.168.33.99",
