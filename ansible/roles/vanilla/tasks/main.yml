@@ -33,4 +33,11 @@
   get_url: url=http://vanillaforums.org/get/datagenerator-plugin-0.2.zip dest=/vagrant/files/www/html/source/
 
 - name: vanilla | Get addons | Unzip Data Generator
-  unarchive: src=/vagrant/files/www/html/source/datagenerator-plugin-0.2.zip dest=/vagrant/files/www/html/applications/ copy=no
+  unarchive: src=/vagrant/files/www/html/source/datagenerator-plugin-0-2.zip dest=/vagrant/files/www/html/plugins/ copy=no
+
+- name: vanilla | Get theme | Download Bootstrap
+  get_url: url=http://vanillaforums.org/get/bootstrap-theme-2.5.0.zip dest=/vagrant/files/www/html/source/
+
+- name: vanilla | Get theme | Unzip Bootstrap
+  unarchive: src=/vagrant/files/www/html/source/bootstrap-theme-2-5-0.zip dest=/vagrant/files/www/html/themes/ copy=no
+ 
