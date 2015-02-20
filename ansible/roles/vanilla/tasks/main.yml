@@ -28,3 +28,9 @@
 
 - name: vanilla | Get addons | Unzip Yaga
   unarchive: src=/vagrant/files/www/html/source/yaga-application-1-0-3.zip dest=/vagrant/files/www/html/applications/ copy=no
+
+- name: vanilla | Get addons | Download Data Generator
+  get_url: url=http://vanillaforums.org/get/datagenerator-plugin-0.2.zip dest=/vagrant/files/www/html/source/
+
+- name: vanilla | Get addons | Unzip Data Generator
+  unarchive: src=/vagrant/files/www/html/source/datagenerator-plugin-0.2.zip dest=/vagrant/files/www/html/applications/ copy=no
